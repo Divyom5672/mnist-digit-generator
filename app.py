@@ -14,14 +14,15 @@ st.title("Handwritten Image Digit Generator")
 digit = st.selectbox("Choose a digit (0–9)", list(range(10)))
 
 if st.button("Generate"):
-    z = torch.randn(5, 100)
-    labels = torch.full((5,), digit, dtype=torch.long)
+    z = torch.randn(5, 100, device=device)
+    labels = torch.full((5,), digit, dtype=torch.long, device=device)
 
     with torch.no_grad():
         generated_imgs = generator(z)
 
-    grid_img = make_grid(generated_imgs, nrow=5, normalize=True)
-    plt.imshow(grid_img.permute(1, 2, 0).squeeze(), cmap="gray")
-    plt.axis("off")
-    st.pyplot(plt)
+   grid_img = make_grid(generated_imgs, nrow=5, normalize=True)
+    fig, ax = plt.subplots()
+    ax.imshow(grid_img.permute(1, 2, 0).cpu())
+    ax.axis("off")
+    st.pyplot(fig)
 
