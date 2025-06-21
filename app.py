@@ -8,7 +8,7 @@ from generator import Generator
 device = torch.device("cpu")
 
 # Streamlit app title
-st.title("MNIST Digit Generator")
+st.title("Handwritten Digit Image Generator")
 
 # Show spinner while loading the model
 with st.spinner("Loading model..."):
