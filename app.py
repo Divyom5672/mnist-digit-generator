@@ -10,7 +10,7 @@ generator = Generator()
 generator.load_state_dict(torch.load("models/generator.pth", map_location=device))
 generator.eval()
 
-st.title("MNIST Digit Generator")
+st.title("Handwritten Image Digit Generator")
 digit = st.selectbox("Choose a digit (0–9)", list(range(10)))
 
 if st.button("Generate"):
