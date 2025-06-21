@@ -18,7 +18,7 @@ if st.button("Generate"):
     labels = torch.full((5,), digit, dtype=torch.long)
 
     with torch.no_grad():
-        generated_imgs = generator(z, labels)
+        generated_imgs = generator(z)
 
     grid_img = make_grid(generated_imgs, nrow=5, normalize=True)
     plt.imshow(grid_img.permute(1, 2, 0).squeeze(), cmap="gray")
