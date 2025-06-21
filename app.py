@@ -20,7 +20,7 @@ if st.button("Generate"):
     with torch.no_grad():
         generated_imgs = generator(z)
 
-   grid_img = make_grid(generated_imgs, nrow=5, normalize=True)
+    grid_img = make_grid(generated_imgs, nrow=5, normalize=True)
     fig, ax = plt.subplots()
     ax.imshow(grid_img.permute(1, 2, 0).cpu())
     ax.axis("off")
